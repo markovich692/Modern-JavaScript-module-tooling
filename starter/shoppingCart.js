@@ -5,5 +5,9 @@ const cart = [];
 
 export const addToCart = function (item, quantity) {
   cart.push({ item, quantity });
-  console.log(`${quantity}, ${bread} added to cart`);
+  console.log(`${quantity} ${item}(s) added to cart.`);
 };
+
+const totalPrice = 200;
+const totalQuantity = 237;
+export { totalPrice, totalQuantity };
