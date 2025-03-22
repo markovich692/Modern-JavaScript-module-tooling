@@ -21,7 +21,7 @@ const getLastPost = async function () {
 const lastPost2 = await getLastPost();
 console.log(lastPost2);
 
-(function () {
+const shoppingCart2 = function () {
   const cart = [];
   const shippingCost = 10;
   const totalPrice = 237;
@@ -36,4 +36,12 @@ console.log(lastPost2);
     cart.push({ item, quantity });
     console.log(`${quantity} ${item}(s) ordered from supplier.`);
   };
-});
+
+  return {
+    cart,
+    shippingCost,
+    totalPrice,
+    totalQuantity,
+    addToCart,
+  };
+};
