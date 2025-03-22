@@ -2,6 +2,7 @@ console.log('Exporting module');
 
 const shippingCost = 20;
 const cart = [];
+export { cart as pagnier };
 
 export const addToCart = function (item, quantity) {
   cart.push({ item, quantity });
@@ -10,4 +11,9 @@ export const addToCart = function (item, quantity) {
 
 const totalPrice = 200;
 const totalQuantity = 237;
-export { totalPrice, totalQuantity };
+export { totalPrice, totalQuantity as tq };
+
+export default function (item, quantity) {
+  cart.push({ item, quantity });
+  console.log(`${quantity} ${item}(s) added to cart.`);
+}
