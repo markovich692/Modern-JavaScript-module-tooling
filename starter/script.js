@@ -12,9 +12,18 @@
 
 // console.log(pagnier);
 
-console.log(`start fetching`);
+const getLastPost = async function () {
+  console.log(`start fetching`);
 
-const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
-const data = await res;
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+  const data = await res.json();
 
-console.log(data);
+  return { title: data.at(-1).title };
+};
+
+// const lastPost = getLastPost();
+
+// lastPost.then(post => console.log(post));
+
+const lastPost2 = await getLastPost();
+console.log(lastPost2);
