@@ -19,9 +19,10 @@ const getLastPost = async function () {
 };
 
 const lastPost2 = await getLastPost();
-console.log(lastPost2);
+// console.log(lastPost2);
 
-const shoppingCart2 = function () {
+//MODULE PATTERN
+const shoppingCart2 = (function () {
   const cart = [];
   const shippingCost = 10;
   const totalPrice = 237;
@@ -44,4 +45,6 @@ const shoppingCart2 = function () {
     totalQuantity,
     addToCart,
   };
-};
+})();
+
+shoppingCart2.addToCart('biscuit', 6);
