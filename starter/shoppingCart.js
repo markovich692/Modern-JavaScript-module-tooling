@@ -2,7 +2,7 @@ console.log('Exporting module');
 
 const shippingCost = 20;
 const cart = [];
-export { cart as pagnier };
+export { cart };
 
 export const addToCart = function (item, quantity) {
   cart.push({ item, quantity });
