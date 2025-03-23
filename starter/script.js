@@ -3,6 +3,7 @@
 // ShoppingCart.addToCart(`bread`, 5);
 // console.log(ShoppingCart.totalPrice, ShoppingCart.tq);
 
+import shoppingCart from './shoppingCart.js';
 import add, { cart } from './shoppingCart.js';
 
 add('bread', 6);
@@ -48,3 +49,7 @@ const shoppingCart2 = (function () {
 })();
 
 shoppingCart2.addToCart('biscuit', 6);
+shoppingCart2.cart.push(shoppingCart2.totalPrice);
+
+console.log(shoppingCart2.cart);
+console.log(shoppingCart2.totalPrice);
