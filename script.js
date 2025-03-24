@@ -53,3 +53,4 @@ shoppingCart2.cart.push(shoppingCart2.totalPrice);
 
 // console.log(shoppingCart2.cart);
 // console.log(shoppingCart2.totalPrice);
+import cloneDeep from 'lodash-es/cloneDeep.js';
