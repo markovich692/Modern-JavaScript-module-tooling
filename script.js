@@ -3,12 +3,12 @@
 // ShoppingCart.addToCart(`bread`, 5);
 // console.log(ShoppingCart.totalPrice, ShoppingCart.tq);
 
-import shoppingCart from './shoppingCart.js';
-import add, { cart } from './shoppingCart.js';
+import { shippingCost } from './shoppingCart.js';
+// import add, { cart } from './shoppingCart.js';
 
-add('bread', 6);
-add('cake', 6);
-add('gum', 6);
+// add('bread', 6);
+// add('cake', 6);
+// add('gum', 6);
 
 const getLastPost = async function () {
   // console.log(`start fetching`);
@@ -19,7 +19,7 @@ const getLastPost = async function () {
   return { title: data.at(-1).title, text: data.at(-1).body };
 };
 
-const lastPost2 = await getLastPost();
+// const lastPost2 = await getLastPost();
 // console.log(lastPost2);
 
 //MODULE PATTERN
@@ -73,3 +73,5 @@ obj1.hobby.push('jumping');
 console.log(obj1);
 console.log(obj1Clone);
 console.log(obj1DeepClone);
+
+console.log(shippingCost);
