@@ -62,10 +62,14 @@ const obj1 = {
 };
 
 //Shallow copy
-const ob1Clone = Object.assign({}, obj1);
-obj2.name = 'Bill';
+const obj1Clone = Object.assign({}, obj1);
+
+obj1Clone.name = 'Bill';
+
+const obj1DeepClone = cloneDeep(obj1);
 
 console.log('Updated log');
 obj1.hobby.push('jumping');
 console.log(obj1);
-console.log(ob1Clone);
+console.log(obj1Clone);
+console.log(obj1DeepClone);
