@@ -53,4 +53,19 @@ shoppingCart2.cart.push(shoppingCart2.totalPrice);
 
 // console.log(shoppingCart2.cart);
 // console.log(shoppingCart2.totalPrice);
-import cloneDeep from 'lodash-es/cloneDeep.js';
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+const obj1 = {
+  name: 'Marc',
+  age: 24,
+  hobby: ['soccer', 'volley-ball', 'music'],
+};
+
+//Shallow copy
+const ob1Clone = Object.assign({}, obj1);
+obj2.name = 'Bill';
+
+console.log('Updated log');
+obj1.hobby.push('jumping');
+console.log(obj1);
+console.log(ob1Clone);
