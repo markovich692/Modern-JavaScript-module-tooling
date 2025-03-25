@@ -15,14 +15,14 @@ const spendingLimits = {
 };
 
 const addExpense = function (value, description, user = 'jonas') {
-  let lim;
   user.toLowerCase();
 
-  spendingLimits[user] ? (lim = spendingLimits[usser]) : (lim = 0);
+  // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
+  const limit = spendingLimits?.[user] ?? 0;
 
-  if (value > lim) return;
-
-  budget.push({ value: -value, description: description, user: user });
+  if (value <= limit) {
+    budget.push({ value: -value, description: description, user: user });
+  }
 };
 
 addExpense(10, 'Pizza 🍕');
