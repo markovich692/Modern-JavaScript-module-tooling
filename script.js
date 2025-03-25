@@ -81,3 +81,6 @@ if (module.hot) {
 }
 
 import 'core-js/stable';
+
+//To polyfill the Async function
+import 'regenerator-runtime/runtime';
