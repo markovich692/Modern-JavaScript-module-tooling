@@ -9,38 +9,23 @@ const budget = [
   { value: -1800, description: 'New Laptop 💻', user: 'jonas' },
 ];
 
-const limits = {
+const spendingLimits = {
   jonas: 1500,
   matilda: 100,
 };
 
-const add = function (value, description, user = 'jonas') {
-  user = user.toLowerCase();
+const addExpense = function (value, description, user = 'jonas') {};
 
-  let lim;
-
-  limits[user] ? (lim = limits[user]) : (lim = 0);
-
-  // if (limits[user]) {
-  //   lim = limits[user];
-  // } else {
-  //   lim = 0;
-  // }
-
-  if (value <= lim) {
-    budget.push({ value: -value, description: description, user: user });
-  }
-};
-add(10, 'Pizza 🍕');
-add(100, 'Going to movies 🍿', 'Matilda');
-add(200, 'Stuff', 'Jay');
+addExpense(10, 'Pizza 🍕');
+addExpense(100, 'Going to movies 🍿', 'Matilda');
+addExpense(200, 'Stuff', 'Jay');
 console.log(budget);
 
-var check = function () {
-  for (var el of budget) {
-    var lim;
-    if (limits[el.user]) {
-      lim = limits[el.user];
+const check = function () {
+  for (const el of budget) {
+    let lim;
+    if (spendingLimits[el.user]) {
+      lim = spendingLimits[el.user];
     } else {
       lim = 0;
     }
@@ -54,9 +39,9 @@ check();
 
 console.log(budget);
 
-var bigExpenses = function (limit) {
-  var output = '';
-  for (var el of budget) {
+const bigExpenses = function (limit) {
+  const output = '';
+  for (const el of budget) {
     if (el.value <= -limit) {
       output += el.description.slice(-2) + ' / '; // Emojis are 2 chars
     }
