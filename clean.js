@@ -50,11 +50,11 @@ checkExpenses();
 
 console.log(budget);
 
-const bigExpenses = function (limit) {
+const logBigExpenses = function (bigLimit) {
   const output = '';
   for (const el of budget) {
-    if (el.value <= -limit) {
-      output += el.description.slice(-2) + ' / '; // Emojis are 2 chars
+    if (el.value <= -bigLimit) {
+      output += `${el.description.slice(-2)}/`; // Emojis are 2 chars
     }
   }
   output = output.slice(0, -2); // Remove last '/ '
