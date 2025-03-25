@@ -30,7 +30,7 @@ addExpense(100, 'Going to movies 🍿', 'Matilda');
 addExpense(200, 'Stuff', 'Jay');
 console.log(budget);
 
-const check = function () {
+const checkExpenses = function () {
   budget.forEach(function (el) {
     const limit = spendingLimits[el.user] ? spendingLimits[el.user] : 0;
 
@@ -40,7 +40,7 @@ const check = function () {
   });
 };
 
-check();
+checkExpenses();
 
 console.log(budget);
 
