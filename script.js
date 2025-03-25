@@ -53,7 +53,7 @@ shoppingCart2.cart.push(shoppingCart2.totalPrice);
 
 // console.log(shoppingCart2.cart);
 // console.log(shoppingCart2.totalPrice);
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from 'lodash-es';
 
 const obj1 = {
   name: 'Marc',
@@ -75,3 +75,9 @@ console.log(obj1Clone);
 console.log(obj1DeepClone);
 
 console.log(shippingCost);
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+import 'core-js/stable';
