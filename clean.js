@@ -14,7 +14,16 @@ const spendingLimits = {
   matilda: 100,
 };
 
-const addExpense = function (value, description, user = 'jonas') {};
+const addExpense = function (value, description, user = 'jonas') {
+  let lim;
+  user.toLowerCase();
+
+  spendingLimits[user] ? (lim = spendingLimits[usser]) : (lim = 0);
+
+  if (value > lim) return;
+
+  budget.push({ value: -value, description: description, user: user });
+};
 
 addExpense(10, 'Pizza 🍕');
 addExpense(100, 'Going to movies 🍿', 'Matilda');
