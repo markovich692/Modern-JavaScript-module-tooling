@@ -66,17 +66,15 @@ const checkExpenses = function (state, limits) {
 
 checkExpenses(newBudget3, spendingLimits);
 
-const logBigExpenses = function (state, bigLimit) {
-  let output = '';
-
+const logBigExpenses = function (state, bigLimit, output = '') {
   state.forEach(entry => {
     output +=
       { ...entry }.value <= -bigLimit
         ? `${{ ...entry }.description.slice(-2)} / `
         : '';
   });
-  output = output.slice(0, -2);
-  console.log(output);
+
+  console.log(output.slice(0, -2));
 };
 
 // const logBigExpenses = function (bigLimit) {
