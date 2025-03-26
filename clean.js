@@ -22,6 +22,7 @@ const getLimit = function (user, limits) {
   return limit;
 };
 
+//Pure function
 const addExpense = function (
   state,
   limits,
@@ -33,26 +34,31 @@ const addExpense = function (
 
   const limit = getLimit(cleanUser, limits);
 
-  const newBudget =
-    value <= limit
-      ? [...state, { value: -value, description, user: cleanUser }]
-      : [...state];
-
-  return newBudget;
+  return value <= limit
+    ? [...state, { value: -value, description, user: cleanUser }]
+    : state;
 
   // if (value <= limit) {
   //   return [...state, { value: -value, description, user: cleanUser }];
   // }
 };
 
-const newbudget1 = addExpense(budget, spendingLimits, 10000, 'Pizza 🍕');
-// const newbudget2 = addExpense(budget, spendingLimits, 100,'Going to movies 🍿','Matilda');
-console.log(newbudget1);
-addExpense(budget, spendingLimits, 200, 'Stuff', 'Jay');
+const newBudget1 = addExpense(budget, spendingLimits, 10, 'Pizza 🍕');
+console.log(newBudget1);
+const newBudget2 = addExpense(
+  newBudget1,
+  spendingLimits,
+  100,
+  'Going to movies 🍿',
+  'Matilda'
+);
 
-const checkExpenses = function () {
-  budget.forEach(function (entry) {
-    const limit = getLimit(entry.user);
+const newBudget3 = addExpense(newBudget2, spendingLimits, 200, 'Stuff', 'Jay');
+console.log(newBudget3);
+
+const checkExpenses = function (state, limits) {
+  state.forEach(function (entry) {
+    const limit = getLimit(entry.user, limits);
 
     if (entry.value < -limit) {
       entry.flag = 'limit';
@@ -60,7 +66,7 @@ const checkExpenses = function () {
   });
 };
 
-checkExpenses();
+checkExpenses(newBudget3, spendingLimits);
 
 const logBigExpenses = function (bigLimit) {
   let output = '';
