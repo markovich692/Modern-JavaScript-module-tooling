@@ -67,27 +67,14 @@ const checkExpenses = function (state, limits) {
 checkExpenses(newBudget3, spendingLimits);
 
 const logBigExpenses = function (state, bigLimit, output = '') {
-  state.forEach(entry => {
-    output +=
-      { ...entry }.value <= -bigLimit
-        ? `${{ ...entry }.description.slice(-2)} / `
-        : '';
-  });
+  const bigExpenses = state
+    .filter(entry => entry.value <= -bigLimit)
+    .reduce(function (acc, bigExp) {
+      return acc + `${bigExp.description.slice(-2)} /`;
+    }, '');
 
-  console.log(output.slice(0, -2));
+  console.log(bigExpenses.slice(0, -2));
 };
-
-// const logBigExpenses = function (bigLimit) {
-//   let output = '';
-//   for (const entry of budget) {
-//     console.log(entry);
-//     output +=
-//       entry.value <= -bigLimit ? `${entry.description.slice(-2)} / ` : '';
-//   }
-
-//   output = output.slice(0, -2); // Remove last '/ '
-//   console.log(output);
-// };
 
 console.log(budget);
 logBigExpenses(newBudget3, 100);
