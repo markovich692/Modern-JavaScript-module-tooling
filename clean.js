@@ -29,13 +29,12 @@ const addExpense = function (
   description,
   user = 'jonas'
 ) {
-  user.toLowerCase();
+  const cleanUser = user.toLowerCase();
 
-  // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
-  const limit = getLimit(user, limits);
+  const limit = getLimit(cleanUser, limits);
 
   if (value <= limit) {
-    state.push({ value: -value, description, user });
+    state.push({ value: -value, description, user: cleanUser });
   }
 };
 
