@@ -69,11 +69,12 @@ checkExpenses(newBudget3, spendingLimits);
 const logBigExpenses = function (state, bigLimit, output = '') {
   const bigExpenses = state
     .filter(entry => entry.value <= -bigLimit)
-    .reduce(function (acc, bigExp) {
-      return acc + `${bigExp.description.slice(-2)} /`;
-    }, '');
+    .reduce(function (acc, cur) {
+      return `${acc} / ${cur.description.slice(-2)} `;
+    }, '')
+    .slice(2);
 
-  console.log(bigExpenses.slice(0, -2));
+  console.log(bigExpenses);
 };
 
 console.log(budget);
